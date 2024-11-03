@@ -1,0 +1,38 @@
+# Ignore node_modules and logs
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignore dotenv files (you might not want to upload sensitive data)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore build directories
+build
+dist
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore editor and system-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Ignore coverage files
+coverage
+
+# Ignore Docker-specific files
+docker-compose.override.yml
+Dockerfile.dev
+
+# Ignore other potentially sensitive files
+keys/
+certs/

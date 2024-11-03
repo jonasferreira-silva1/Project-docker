@@ -1,0 +1,34 @@
+version: "3.8"  # Pode remover essa linha se for obsoleto
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile  # O caminho deve ser relativo à raiz do projeto onde o Dockerfile do backend está localizado
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/your_database_name
+      SPRING_DATASOURCE_USERNAME: your_username
+      SPRING_DATASOURCE_PASSWORD: your_password
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./src
+      dockerfile: Dockerfile-front-end
+    ports:
+      - "80:80"
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: your_database_name
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
